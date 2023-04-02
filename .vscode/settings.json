@@ -1,7 +1,5 @@
 {
-  "cSpell.words": [
-    "trustme"
-  ],
+  "cSpell.words": ["roboto", "trustme"],
   "typescript.tsdk": "node_modules/.pnpm/typescript@5.0.3/node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true
 }
