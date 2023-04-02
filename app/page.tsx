@@ -46,6 +46,13 @@ export default function Home() {
       </div>
 
       <div className={styles.grid}>
+        <a href="/forms" className={styles.card}>
+          <h2 className={inter.className}>
+            Forms <span>-&gt;</span>
+          </h2>
+          <p className={inter.className}>Play with a clone of Google Forms</p>
+        </a>
+
         <a
           href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className={styles.card}
