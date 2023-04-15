@@ -14,15 +14,14 @@ const robotoFlex = Roboto_Flex({
 export const theme = createTheme({
   typography: {
     fontFamily: [inter.style.fontFamily, 'sans-serif'].join(','),
-    // allVariants: {
-    //   color: '#3c4043',
-    // },
+    allVariants: {
+      color: '#3c4043',
+    },
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          paddingInline: 16,
           textTransform: 'none',
         },
       },

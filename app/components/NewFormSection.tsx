@@ -20,7 +20,11 @@ export default function NewFormSection() {
       >
         <Typography component="span">Start a new form</Typography>
         <Box sx={{ flexGrow: 1 }}></Box>
-        <Button color="inherit" endIcon={<UnfoldMoreIcon />}>
+        <Button
+          color="inherit"
+          endIcon={<UnfoldMoreIcon />}
+          sx={{ paddingInline: 2 }}
+        >
           Template gallery
         </Button>
         <Divider orientation="vertical" flexItem sx={{ marginInline: 1 }} />
