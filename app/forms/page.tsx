@@ -1,9 +1,10 @@
 'use client'
 
 import { Box, ThemeProvider } from '@mui/material'
-import AppBar from '@/app/components/AppBar'
-import NewFormSection from '@/app/components/NewFormSection'
 import { theme } from '@/app/theme'
+import AppBar from '@/app/components/AppBar'
+import TemplatesSection from '@/app/components/TemplatesSection'
+import RecentFormsSection from '@/app/components/RecentFormsSection'
 
 export default function Forms() {
   return (
@@ -11,7 +12,8 @@ export default function Forms() {
       <main>
         <Box sx={{ color: 'grey.700' }}>
           <AppBar />
-          <NewFormSection />
+          <TemplatesSection />
+          <RecentFormsSection />
         </Box>
       </main>
     </ThemeProvider>

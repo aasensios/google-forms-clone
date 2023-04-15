@@ -12,7 +12,7 @@ import {
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import type { DrawerSection } from '@/app/types'
-import { drawerSections } from '@/app/data'
+import { drawerSections } from '@/app/data/drawer'
 
 export default function Drawer() {
   const [open, setOpen] = useState(false)
