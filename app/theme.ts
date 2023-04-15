@@ -1,14 +1,22 @@
-import { Roboto_Flex } from 'next/font/google'
+import { Inter, Roboto_Flex } from 'next/font/google'
 import { createTheme } from '@mui/material'
 
-const roboto = Roboto_Flex({
-  weight: ['400', '700'],
+const inter = Inter({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+})
+
+const robotoFlex = Roboto_Flex({
+  weight: ['400', '500', '700'],
   subsets: ['latin'],
 })
 
 export const theme = createTheme({
   typography: {
-    fontFamily: [roboto.style.fontFamily, 'sans-serif'].join(','),
+    fontFamily: [inter.style.fontFamily, 'sans-serif'].join(','),
+    // allVariants: {
+    //   color: '#3c4043',
+    // },
   },
   components: {
     MuiButton: {
