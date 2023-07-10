@@ -44,6 +44,7 @@ export default function SearchBar() {
           placeholder="Search"
           inputProps={{ 'aria-label': 'Search bar' }}
           sx={{ padding: 1 }}
+          fullWidth
           onChange={(event) => setValue(event.target.value)}
           onClick={() => setFocused((focused) => !focused)}
         />
