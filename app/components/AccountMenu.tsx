@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 import {
   Avatar,
   Box,
@@ -15,6 +15,18 @@ import {
 } from '@mui/material'
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt'
 import LogoutIcon from '@mui/icons-material/Logout'
+
+function SmallButton({ children }: { children: ReactNode }) {
+  return (
+    <Button
+      color="inherit"
+      size="small"
+      sx={{ fontSize: '12px', fontWeight: 400 }}
+    >
+      {children}
+    </Button>
+  )
+}
 
 export default function AccountMenu() {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null)
@@ -43,7 +55,6 @@ export default function AccountMenu() {
             width: '361px',
             backgroundColor: '#f3f6fc',
             padding: 1,
-            // border: '0.5rem solid transparent',
           },
           '& .MuiList-root': {
             padding: 0,
@@ -58,43 +69,40 @@ export default function AccountMenu() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <Stack spacing={0.5}>
-          <Box
+          <Stack
+            spacing={1}
             sx={{
               borderTopLeftRadius: '1rem',
               borderTopRightRadius: '1rem',
               backgroundColor: 'common.white',
-              display: 'flex',
-              gap: 2,
               padding: 2,
             }}
           >
-            <Avatar
-              alt="Avatar"
-              src="/some-image.jpg"
-              sx={{
-                height: (theme) => theme.spacing(8),
-                width: (theme) => theme.spacing(8),
-              }}
-            />
-            <Box>
-              <Typography variant="body2" sx={{ fontWeight: 500 }}>
-                My Name
-              </Typography>
-              <Typography variant="caption">myemail@company.com</Typography>
-              <Button
-                variant="outlined"
-                size="small"
-                color="inherit"
-                sx={{ marginBlockStart: 3 }}
-              >
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+              <Avatar
+                alt="Avatar"
+                src="/some-image.jpg"
+                sx={{ height: '3.5rem', width: '3.5rem' }}
+              />
+              <Box>
+                <Typography variant="body2" sx={{ fontWeight: 500 }}>
+                  My Name
+                </Typography>
+                <Typography variant="caption" color="text.secondary">
+                  myemail@company.com
+                </Typography>
+              </Box>
+            </Box>
+            <Box sx={{ alignSelf: 'start', paddingInline: 9 }}>
+              <Button variant="outlined" size="small" color="inherit">
                 Manage your account
               </Button>
             </Box>
-          </Box>
+          </Stack>
           <MenuItem
             sx={{
               paddingBlock: 1.5,
-              paddingInline: 5,
+              paddingInline: 4,
               backgroundColor: 'background.default',
               borderBottomLeftRadius: '1rem',
               borderBottomRightRadius: '1rem',
@@ -103,7 +111,11 @@ export default function AccountMenu() {
             <ListItemIcon>
               <PersonAddAltIcon />
             </ListItemIcon>
-            <ListItemText>Add another account</ListItemText>
+            <ListItemText
+              primaryTypographyProps={{ sx: { fontSize: 'smaller' } }}
+            >
+              Add another account
+            </ListItemText>
           </MenuItem>
         </Stack>
         <MenuItem
@@ -112,7 +124,11 @@ export default function AccountMenu() {
           <ListItemIcon>
             <LogoutIcon />
           </ListItemIcon>
-          <ListItemText>Sign out</ListItemText>
+          <ListItemText
+            primaryTypographyProps={{ sx: { fontSize: 'smaller' } }}
+          >
+            Sign out
+          </ListItemText>
         </MenuItem>
         <Divider sx={{ margin: -1 }} />
         <Box
@@ -123,21 +139,9 @@ export default function AccountMenu() {
             gap: 1,
           }}
         >
-          <Button
-            color="inherit"
-            size="small"
-            sx={{ fontSize: '12px', fontWeight: 400 }}
-          >
-            Privacy Policy
-          </Button>
-          <span>•</span>
-          <Button
-            color="inherit"
-            size="small"
-            sx={{ fontSize: '12px', fontWeight: 400 }}
-          >
-            Terms of Service
-          </Button>
+          <SmallButton>Privacy Policy</SmallButton>
+          <Typography variant="caption">•</Typography>
+          <SmallButton>Terms of Service</SmallButton>
         </Box>
       </Menu>
     </>
