@@ -41,7 +41,7 @@ export default function AccountMenu() {
 
   return (
     <>
-      <Tooltip title="TrustMe Account">
+      <Tooltip title="Account">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
           <Avatar alt="Avatar" src="/some-image.jpg" />
         </IconButton>

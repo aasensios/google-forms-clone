@@ -1,8 +1,8 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'TrustMe',
-  description: 'Google Forms clone',
+  title: 'Google Forms clone',
+  description: 'Exercise to replicate Google Forms web app',
 }
 
 export default function RootLayout({
