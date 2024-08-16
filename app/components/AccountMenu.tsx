@@ -43,7 +43,7 @@ export default function AccountMenu() {
     <>
       <Tooltip title="Account">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt="Avatar" src="/some-image.jpg" />
+          <Avatar>A</Avatar>
         </IconButton>
       </Tooltip>
       <Menu
@@ -79,11 +79,7 @@ export default function AccountMenu() {
             }}
           >
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              <Avatar
-                alt="Avatar"
-                src="/some-image.jpg"
-                sx={{ height: '3.5rem', width: '3.5rem' }}
-              />
+              <Avatar sx={{ height: '3.5rem', width: '3.5rem' }}>A</Avatar>
               <Box>
                 <Typography variant="body2" sx={{ fontWeight: 500 }}>
                   My Name
