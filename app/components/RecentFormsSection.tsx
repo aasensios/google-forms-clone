@@ -14,7 +14,7 @@ import SortByAlphaIcon from '@mui/icons-material/SortByAlpha'
 import FolderOpenOutlinedIcon from '@mui/icons-material/FolderOpenOutlined'
 import { forms } from '@/app/data/forms'
 import FormCard from '@/app/components/FormCard'
-import Grid from '@mui/material/Unstable_Grid2/Grid2'
+import Grid from '@mui/material/Grid'
 
 export default function RecentFormsSection() {
   return (
@@ -48,7 +48,7 @@ export default function RecentFormsSection() {
         </Box>
         <Grid container spacing={2} sx={{ paddingBlockEnd: 6 }}>
           {forms.map((form, index) => (
-            <Grid key={index} xs={4} md={3}>
+            <Grid key={index} size={{ xs: 4, md: 3 }}>
               <FormCard form={form} />
             </Grid>
           ))}
