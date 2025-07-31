@@ -9,6 +9,7 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  useTheme,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import type { DrawerSection } from '@/app/types'
@@ -62,6 +63,8 @@ export default function Drawer() {
 }
 
 function DrawerSection({ items }: { items: DrawerSection }) {
+  const theme = useTheme()
+
   return (
     <>
       <List disablePadding>
@@ -69,8 +72,8 @@ function DrawerSection({ items }: { items: DrawerSection }) {
           <ListItem key={index} disablePadding sx={{ paddingRight: 1 }}>
             <ListItemButton
               sx={{
-                borderTopRightRadius: '20px',
-                borderBottomRightRadius: '20px',
+                borderTopRightRadius: theme.spacing(7),
+                borderBottomRightRadius: theme.spacing(7),
                 paddingBlock: 0.5,
                 paddingInlineStart: 3,
               }}
@@ -80,13 +83,18 @@ function DrawerSection({ items }: { items: DrawerSection }) {
               </ListItemIcon>
               <ListItemText
                 primary={item.name}
-                primaryTypographyProps={{ fontSize: '14px', fontWeight: 500 }}
+                slotProps={{
+                  primary: {
+                    fontSize: '14px',
+                    fontWeight: 500,
+                  },
+                }}
               />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
-      <Divider sx={{ marginBlock: 2 }} />
+      <Divider sx={{ marginBlock: 1 }} />
     </>
   )
 }

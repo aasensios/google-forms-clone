@@ -1,6 +1,5 @@
 import {
   Box,
-  CardActions,
   CardContent,
   CardMedia,
   IconButton,
@@ -28,8 +27,9 @@ export default function FormCard({ form }: { form: Form }) {
       >
         <CardMedia
           sx={{
-            width: (theme) => theme.spacing(26),
             height: (theme) => theme.spacing(21),
+            width: 'auto',
+            objectFit: 'cover',
           }}
           image={form.thumbnailUrl}
           title={form.name}

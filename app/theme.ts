@@ -2,12 +2,7 @@ import { Inter, Roboto_Flex } from 'next/font/google'
 import { createTheme } from '@mui/material'
 
 const inter = Inter({
-  weight: ['400', '500', '700'],
-  subsets: ['latin'],
-})
-
-const robotoFlex = Roboto_Flex({
-  weight: ['400', '500', '700'],
+  weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
 })
 

@@ -1,5 +1,3 @@
-'use client'
-
 import {
   Box,
   Button,
@@ -17,7 +15,7 @@ import TemplateCard from '@/app/components/TemplateCard'
 export default function TemplatesSection() {
   return (
     <Box sx={{ backgroundColor: 'grey.200' }}>
-      <Container maxWidth="lg">
+      <Container sx={{ width: { xs: '100%', sm: '90%', md: '80%' } }}>
         <Box
           sx={{
             display: 'flex',
@@ -41,7 +39,10 @@ export default function TemplatesSection() {
             </IconButton>
           </Box>
         </Box>
-        <Stack direction="row" spacing={2} sx={{ paddingBlockEnd: 6 }}>
+        <Stack
+          direction="row"
+          sx={{ paddingBlockEnd: 6, flexWrap: 'wrap', gap: 2 }}
+        >
           {templates.map((template, index) => (
             <TemplateCard key={index} template={template} />
           ))}

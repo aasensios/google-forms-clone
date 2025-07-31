@@ -1,11 +1,11 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search'
 import CloseIcon from '@mui/icons-material/Close'
 import {
-  Box,
   ClickAwayListener,
   IconButton,
   InputBase,
+  Stack,
   Tooltip,
 } from '@mui/material'
 
@@ -15,15 +15,15 @@ export default function SearchBar() {
 
   return (
     <ClickAwayListener onClickAway={() => setFocused(false)}>
-      <Box
+      <Stack
+        direction="row"
+        spacing={1}
         sx={{
-          borderRadius: 2,
-          backgroundColor: 'grey.200',
-          paddingInline: 1,
-          display: 'flex',
+          borderRadius: 7,
+          backgroundColor: '#F0F4F9',
+          padding: 0.5,
           alignItems: 'center',
-          flexGrow: 1,
-          maxWidth: '720px',
+          width: '720px',
           transition: (theme) =>
             theme.transitions.create('all', {
               duration: theme.transitions.duration.shortest,
@@ -43,7 +43,6 @@ export default function SearchBar() {
           value={value}
           placeholder="Search"
           inputProps={{ 'aria-label': 'Search bar' }}
-          sx={{ padding: 1 }}
           fullWidth
           onChange={(event) => setValue(event.target.value)}
           onClick={() => setFocused((focused) => !focused)}
@@ -56,7 +55,7 @@ export default function SearchBar() {
             <CloseIcon />
           </IconButton>
         </Tooltip>
-      </Box>
+      </Stack>
     </ClickAwayListener>
   )
 }

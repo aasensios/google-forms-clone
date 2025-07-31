@@ -6,13 +6,14 @@ import DescriptionIcon from '@mui/icons-material/Description'
 import SettingsIcon from '@mui/icons-material/Settings'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
 import AddToDriveIcon from '@mui/icons-material/AddToDrive'
+import GoogleIcon from '@mui/icons-material/Google'
 import type { DrawerSection } from '@/app/types'
 
 export const drawerSections: DrawerSection[] = [
   [
     {
-      icon: <BusinessIcon color="info" />,
-      name: 'Home',
+      icon: <GoogleIcon color="info" />,
+      name: 'Google Forms',
     },
   ],
   [

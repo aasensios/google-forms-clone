@@ -9,13 +9,17 @@ import RecentFormsSection from '@/app/components/RecentFormsSection'
 export default function Forms() {
   return (
     <ThemeProvider theme={theme}>
-      <main>
-        <Box sx={{ color: 'grey.700' }}>
-          <AppBar />
-          <TemplatesSection />
-          <RecentFormsSection />
-        </Box>
-      </main>
+      <Box
+        component="main"
+        sx={{
+          backgroundColor: 'background.default',
+          color: 'grey.700',
+        }}
+      >
+        <AppBar />
+        <TemplatesSection />
+        <RecentFormsSection />
+      </Box>
     </ThemeProvider>
   )
 }
