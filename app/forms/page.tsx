@@ -2,9 +2,9 @@
 
 import { Box, ThemeProvider } from '@mui/material'
 import { theme } from '@/app/theme'
-import AppBar from '@/app/components/AppBar'
-import TemplatesSection from '@/app/components/TemplatesSection'
-import RecentFormsSection from '@/app/components/RecentFormsSection'
+import AppBar from '@/app/components/app-bar'
+import TemplatesSection from '@/app/components/templates-section'
+import RecentFormsSection from '@/app/components/recent-forms-section'
 
 export default function Forms() {
   return (
@@ -14,6 +14,7 @@ export default function Forms() {
         sx={{
           backgroundColor: 'background.default',
           color: 'grey.700',
+          minHeight: '100dvh',
         }}
       >
         <AppBar />

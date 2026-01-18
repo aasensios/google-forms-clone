@@ -1,4 +1,3 @@
-import BusinessIcon from '@mui/icons-material/Business'
 import ArticleIcon from '@mui/icons-material/Article'
 import GridOnIcon from '@mui/icons-material/GridOn'
 import ViewComfyIcon from '@mui/icons-material/ViewComfy'

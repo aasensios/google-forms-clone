@@ -1,6 +1,12 @@
-import { AddCircleRounded, Close, Logout } from '@mui/icons-material'
+import {
+  AddCircleRounded,
+  AddCircleTwoTone,
+  Close,
+  Logout,
+} from '@mui/icons-material'
 import {
   Avatar,
+  Box,
   Button,
   ButtonGroup,
   IconButton,
@@ -11,6 +17,7 @@ import {
   useTheme,
 } from '@mui/material'
 import React, { useState } from 'react'
+import { ABSTRACT_AVATAR, PHOTO_AVATAR } from '../data/avatars'
 
 export default function AccountMenu() {
   const theme = useTheme()
@@ -39,21 +46,20 @@ export default function AccountMenu() {
           }}
         >
           <Avatar
+            alt="User avatar"
+            src={ABSTRACT_AVATAR}
             sx={{
-              backgroundColor: theme.palette.primary.main,
-              width: 32,
-              height: 32,
+              width: theme.spacing(4),
+              height: theme.spacing(4),
             }}
-          >
-            A
-          </Avatar>
+          />
         </IconButton>
       </Tooltip>
       <Menu
         sx={{
-          marginTop: 1,
-          marginRight: 1,
+          marginTop: 1.5,
           '& .MuiPaper-root': {
+            position: 'relative',
             backgroundColor: '#E9EEF6',
             borderRadius: 7,
             width: theme.spacing(50),
@@ -75,12 +81,10 @@ export default function AccountMenu() {
             direction="row"
             spacing={2}
             sx={{
-              position: 'relative',
               width: '100%',
               alignItems: 'center',
               justifyContent: 'center',
-              paddingBlock: 1,
-              margin: -2,
+              paddingBlockEnd: 1,
             }}
           >
             <Typography
@@ -92,15 +96,22 @@ export default function AccountMenu() {
             <IconButton
               sx={{
                 position: 'absolute',
-                right: 0,
-                top: 0,
+                right: theme.spacing(1),
+                top: theme.spacing(1),
               }}
             >
               <Close onClick={handleCloseUserMenu} />
             </IconButton>
           </Stack>
           <Stack spacing={1} sx={{ alignItems: 'center' }}>
-            <Avatar sx={{ height: '4.5rem', width: '4.5rem' }}>A</Avatar>
+            <Avatar
+              alt="User avatar"
+              src={ABSTRACT_AVATAR}
+              sx={{
+                height: theme.spacing(9),
+                width: theme.spacing(9),
+              }}
+            />
             <Typography variant="h6" sx={{ fontWeight: 400 }}>
               Hi, FirstName!
             </Typography>
@@ -150,13 +161,16 @@ export default function AccountMenu() {
               },
             }}
           >
-            <Button startIcon={<AddCircleRounded />}>Add account</Button>
+            <Button startIcon={<AddCircleTwoTone color="primary" />}>
+              Add account
+            </Button>
             <Button startIcon={<Logout />}>Sign out</Button>
           </ButtonGroup>
-          <Stack
-            direction="row"
-            spacing={0.5}
+          <Box
             sx={{
+              display: 'grid',
+              gridTemplateColumns: '1fr auto 1fr',
+              gap: 0.5,
               alignItems: 'center',
               [`& .MuiButton-root`]: {
                 fontSize: '12px',
@@ -164,14 +178,18 @@ export default function AccountMenu() {
               },
             }}
           >
-            <Button color="inherit" size="small">
-              Privacy Policy
-            </Button>
+            <Box sx={{ textAlign: 'end' }}>
+              <Button color="inherit" size="small">
+                Privacy Policy
+              </Button>
+            </Box>
             <Typography sx={{ fontSize: '8px' }}>•</Typography>
-            <Button color="inherit" size="small">
-              Terms of Service
-            </Button>
-          </Stack>
+            <Box sx={{ textAlign: 'start' }}>
+              <Button color="inherit" size="small">
+                Terms of Service
+              </Button>
+            </Box>
+          </Box>
         </Stack>
       </Menu>
     </>

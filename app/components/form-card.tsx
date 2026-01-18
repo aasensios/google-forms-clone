@@ -19,6 +19,7 @@ export default function FormCard({ form }: { form: Form }) {
         variant="outlined"
         elevation={0}
         sx={{
+          position: 'relative',
           '&:hover': {
             cursor: 'pointer',
             border: (theme) => `1px solid ${theme.palette.secondary.main}`,
@@ -27,36 +28,51 @@ export default function FormCard({ form }: { form: Form }) {
       >
         <CardMedia
           sx={{
-            height: (theme) => theme.spacing(21),
+            height: 170,
             width: 'auto',
             objectFit: 'cover',
           }}
           image={form.thumbnailUrl}
           title={form.name}
         />
-        <CardContent sx={{ ':last-child': { padding: 2 } }}>
-          <Typography variant="body2" sx={{ fontWeight: 500 }}>
+        <CardContent
+          sx={{
+            ':last-child': {
+              padding: 1.5,
+            },
+          }}
+        >
+          <Typography
+            variant="body2"
+            gutterBottom
+            noWrap
+            sx={{ fontWeight: 500 }}
+          >
             {form.name}
           </Typography>
           <Box
             sx={{
               display: 'flex',
               alignItems: 'center',
-              // justifyContent: 'space-between',
               gap: 0.5,
+              paddingInlineEnd: 2,
             }}
           >
             <ViewListIcon color="secondary" fontSize="small" />
             {form.shared && (
               <PeopleAltOutlinedIcon color="inherit" fontSize="small" />
             )}
-            <Typography variant="caption" color="text.secondary">
+            <Typography variant="caption" color="text.secondary" noWrap>
               Opened {form.lastOpen}
             </Typography>
             <IconButton
               aria-label="Form actions"
               size="small"
-              sx={{ alignSelf: 'end' }}
+              sx={{
+                position: 'absolute',
+                right: 4,
+                bottom: 4,
+              }}
             >
               <MoreVertIcon />
             </IconButton>

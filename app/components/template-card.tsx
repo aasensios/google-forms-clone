@@ -16,8 +16,8 @@ export default function TemplateCard({ template }: { template: Template }) {
       >
         <CardMedia
           sx={{
-            width: (theme) => theme.spacing(19),
-            height: (theme) => theme.spacing(14.25),
+            height: 123,
+            width: 'auto',
           }}
           image={template.thumbnailUrl}
           title={template.name}

@@ -1,11 +1,13 @@
-import MuiAppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import Drawer from '@/app/components/Drawer'
-import SearchBar from '@/app/components/SearchBar'
-import AccountMenu from '@/app/components/AccountMenu'
+import {
+  AppBar as MuiAppBar,
+  Toolbar,
+  Box,
+  Typography,
+  IconButton,
+} from '@mui/material'
+import Drawer from '@/app/components/drawer'
+import SearchBar from '@/app/components/search-bar'
+import AccountMenu from '@/app/components/account-menu'
 import { Apps, Description } from '@mui/icons-material'
 
 export default function AppBar() {

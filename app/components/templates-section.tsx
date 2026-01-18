@@ -10,17 +10,24 @@ import {
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { templates } from '@/app/data/templates'
-import TemplateCard from '@/app/components/TemplateCard'
+import TemplateCard from '@/app/components/template-card'
 
 export default function TemplatesSection() {
   return (
     <Box sx={{ backgroundColor: 'grey.200' }}>
-      <Container sx={{ width: { xs: '100%', sm: '90%', md: '80%' } }}>
+      <Container
+        sx={{
+          width: {
+            xs: '100%',
+            md: '43rem',
+            lg: '72rem',
+          },
+        }}
+      >
         <Box
           sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            display: 'grid',
+            gridTemplateColumns: '1fr auto',
             paddingBlock: 2,
           }}
         >
@@ -39,14 +46,18 @@ export default function TemplatesSection() {
             </IconButton>
           </Box>
         </Box>
-        <Stack
-          direction="row"
-          sx={{ paddingBlockEnd: 6, flexWrap: 'wrap', gap: 2 }}
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(164px, 1fr))',
+            paddingBlockEnd: 6,
+            gap: 2,
+          }}
         >
-          {templates.map((template, index) => (
-            <TemplateCard key={index} template={template} />
+          {templates.map((template) => (
+            <TemplateCard key={template.name} template={template} />
           ))}
-        </Stack>
+        </Box>
       </Container>
     </Box>
   )

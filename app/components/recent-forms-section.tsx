@@ -1,15 +1,29 @@
-import { Box, Button, Container, IconButton, Typography } from '@mui/material'
+import {
+  Box,
+  Button,
+  Container,
+  IconButton,
+  Typography,
+  Grid,
+} from '@mui/material'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
 import ViewListOutlinedIcon from '@mui/icons-material/ViewListOutlined'
 import SortByAlphaIcon from '@mui/icons-material/SortByAlpha'
 import FolderOpenOutlinedIcon from '@mui/icons-material/FolderOpenOutlined'
 import { forms } from '@/app/data/forms'
-import FormCard from '@/app/components/FormCard'
-import Grid from '@mui/material/Grid'
+import FormCard from '@/app/components/form-card'
 
 export default function RecentFormsSection() {
   return (
-    <Container sx={{ width: { xs: '100%', sm: '90%', md: '80%' } }}>
+    <Container
+      sx={{
+        width: {
+          xs: '100%',
+          md: '43rem',
+          lg: '72rem',
+        },
+      }}
+    >
       <Box
         sx={{
           display: 'flex',
@@ -36,17 +50,20 @@ export default function RecentFormsSection() {
           </IconButton>
         </Box>
       </Box>
-      <Grid
-        container
-        sx={{ paddingBlockEnd: 6, gap: 2 }}
-        columns={{ xs: 3, sm: 4, lg: 5 }}
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
+          paddingBlockEnd: 6,
+          gap: 2.5,
+        }}
       >
         {forms.map((form, index) => (
           <Grid key={index}>
             <FormCard form={form} />
           </Grid>
         ))}
-      </Grid>
+      </Box>
     </Container>
   )
 }
