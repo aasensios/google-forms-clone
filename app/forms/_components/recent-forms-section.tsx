@@ -6,12 +6,14 @@ import {
   Typography,
   Grid,
 } from '@mui/material'
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
-import ViewListOutlinedIcon from '@mui/icons-material/ViewListOutlined'
-import SortByAlphaIcon from '@mui/icons-material/SortByAlpha'
-import FolderOpenOutlinedIcon from '@mui/icons-material/FolderOpenOutlined'
-import { forms } from '@/app/data/forms'
-import FormCard from '@/app/components/form-card'
+import {
+  ArrowDropDown,
+  FolderOpenOutlined,
+  SortByAlpha,
+  ViewListOutlined,
+} from '@mui/icons-material'
+import forms from '@/app/data/forms.json'
+import FormCard from './form-card'
 
 export default function RecentFormsSection() {
   return (
@@ -35,18 +37,18 @@ export default function RecentFormsSection() {
         <Typography component="h2" sx={{ fontWeight: 500 }}>
           Recent forms
         </Typography>
-        <Button size="small" color="inherit" endIcon={<ArrowDropDownIcon />}>
+        <Button size="small" color="inherit" endIcon={<ArrowDropDown />}>
           Owned by anyone
         </Button>
         <Box sx={{ display: 'flex', gap: 1 }}>
           <IconButton size="small">
-            <ViewListOutlinedIcon />
+            <ViewListOutlined />
           </IconButton>
           <IconButton size="small">
-            <SortByAlphaIcon />
+            <SortByAlpha />
           </IconButton>
           <IconButton size="small">
-            <FolderOpenOutlinedIcon />
+            <FolderOpenOutlined />
           </IconButton>
         </Box>
       </Box>

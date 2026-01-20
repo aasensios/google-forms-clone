@@ -5,9 +5,9 @@ import {
   Typography,
   IconButton,
 } from '@mui/material'
-import Drawer from '@/app/components/drawer'
-import SearchBar from '@/app/components/search-bar'
-import AccountMenu from '@/app/components/account-menu'
+import Drawer from './drawer'
+import SearchBar from './search-bar'
+import AccountMenu from './account-menu'
 import { Apps, Description } from '@mui/icons-material'
 
 export default function AppBar() {

@@ -1,12 +1,15 @@
 import { CardMedia, Card as MuiCard, Stack, Typography } from '@mui/material'
-import type { Template } from '@/app/data/templates'
+import type { Template } from '@/app/types'
+import { useRouter } from 'next/navigation'
 
 export default function TemplateCard({ template }: { template: Template }) {
+  const router = useRouter()
   return (
     <Stack spacing={1}>
       <MuiCard
         variant="outlined"
         elevation={0}
+        onClick={() => router.push(`/forms/${crypto.randomUUID()}/edit`)}
         sx={{
           '&:hover': {
             cursor: 'pointer',

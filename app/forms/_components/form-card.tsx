@@ -7,17 +7,19 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
-import ViewListIcon from '@mui/icons-material/ViewList'
-import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined'
-import MoreVertIcon from '@mui/icons-material/MoreVert'
-import type { Form } from '@/app/data/forms'
+import { MoreVert, PeopleAltOutlined, ViewList } from '@mui/icons-material'
+import type { Form } from '@/app/types'
+import { useRouter } from 'next/navigation'
 
 export default function FormCard({ form }: { form: Form }) {
+  const router = useRouter()
+
   return (
     <Stack spacing={1}>
       <MuiCard
         variant="outlined"
         elevation={0}
+        onClick={() => router.push(`/forms/${form.id}/edit`)}
         sx={{
           position: 'relative',
           '&:hover': {
@@ -58,9 +60,9 @@ export default function FormCard({ form }: { form: Form }) {
               paddingInlineEnd: 2,
             }}
           >
-            <ViewListIcon color="secondary" fontSize="small" />
+            <ViewList color="secondary" fontSize="small" />
             {form.shared && (
-              <PeopleAltOutlinedIcon color="inherit" fontSize="small" />
+              <PeopleAltOutlined color="inherit" fontSize="small" />
             )}
             <Typography variant="caption" color="text.secondary" noWrap>
               Opened {form.lastOpen}
@@ -74,7 +76,7 @@ export default function FormCard({ form }: { form: Form }) {
                 bottom: 4,
               }}
             >
-              <MoreVertIcon />
+              <MoreVert />
             </IconButton>
           </Box>
         </CardContent>

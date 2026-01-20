@@ -1,9 +1,4 @@
-import {
-  AddCircleRounded,
-  AddCircleTwoTone,
-  Close,
-  Logout,
-} from '@mui/icons-material'
+import { AddCircleTwoTone, Close, Logout } from '@mui/icons-material'
 import {
   Avatar,
   Box,
@@ -17,7 +12,7 @@ import {
   useTheme,
 } from '@mui/material'
 import React, { useState } from 'react'
-import { ABSTRACT_AVATAR, PHOTO_AVATAR } from '../data/avatars'
+import { ABSTRACT_AVATAR } from '../constants/avatars'
 
 export default function AccountMenu() {
   const theme = useTheme()

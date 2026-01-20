@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import SearchIcon from '@mui/icons-material/Search'
-import CloseIcon from '@mui/icons-material/Close'
+import { Close, Search } from '@mui/icons-material'
 import {
   ClickAwayListener,
   IconButton,
@@ -36,7 +35,7 @@ export default function SearchBar() {
       >
         <Tooltip title="Search">
           <IconButton>
-            <SearchIcon />
+            <Search />
           </IconButton>
         </Tooltip>
         <InputBase
@@ -45,14 +44,14 @@ export default function SearchBar() {
           inputProps={{ 'aria-label': 'Search bar' }}
           fullWidth
           onChange={(event) => setValue(event.target.value)}
-          onClick={() => setFocused((focused) => !focused)}
+          onClick={() => setFocused(true)}
         />
         <Tooltip title="Clear search">
           <IconButton
             sx={{ visibility: value.length === 0 ? 'hidden' : 'visible' }}
             onClick={() => setValue('')}
           >
-            <CloseIcon />
+            <Close />
           </IconButton>
         </Tooltip>
       </Stack>

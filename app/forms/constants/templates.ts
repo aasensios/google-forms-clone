@@ -1,9 +1,6 @@
-export type Template = {
-  thumbnailUrl: string
-  name: string
-}
+import { Template } from '@/app/types'
 
-export const templates: Template[] = [
+export const TEMPLATES: Template[] = [
   {
     thumbnailUrl:
       'https://ssl.gstatic.com/docs/templates/thumbnails/forms-blank-googlecolors.png',

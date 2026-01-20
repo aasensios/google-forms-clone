@@ -1,16 +1,14 @@
+import { MoreVert, UnfoldMore } from '@mui/icons-material'
 import {
   Box,
   Button,
   Container,
   Divider,
   IconButton,
-  Stack,
   Typography,
 } from '@mui/material'
-import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore'
-import MoreVertIcon from '@mui/icons-material/MoreVert'
-import { templates } from '@/app/data/templates'
-import TemplateCard from '@/app/components/template-card'
+import { TEMPLATES } from '../constants/templates'
+import TemplateCard from './template-card'
 
 export default function TemplatesSection() {
   return (
@@ -35,14 +33,14 @@ export default function TemplatesSection() {
           <Box sx={{ display: 'flex' }}>
             <Button
               color="inherit"
-              endIcon={<UnfoldMoreIcon />}
+              endIcon={<UnfoldMore />}
               sx={{ paddingInline: 2 }}
             >
               Template gallery
             </Button>
             <Divider orientation="vertical" flexItem sx={{ marginInline: 1 }} />
             <IconButton size="small">
-              <MoreVertIcon />
+              <MoreVert />
             </IconButton>
           </Box>
         </Box>
@@ -54,7 +52,7 @@ export default function TemplatesSection() {
             gap: 2,
           }}
         >
-          {templates.map((template) => (
+          {TEMPLATES.map((template) => (
             <TemplateCard key={template.name} template={template} />
           ))}
         </Box>
