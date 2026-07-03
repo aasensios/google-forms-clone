@@ -30,12 +30,7 @@ export default function DrawerSectionList({ items }: { items: DrawerSection }) {
               </ListItemIcon>
               <ListItemText
                 primary={item.name}
-                slotProps={{
-                  primary: {
-                    fontSize: '14px',
-                    fontWeight: 500,
-                  },
-                }}
+                sx={{ '& .MuiListItemText-primary': { fontSize: '14px', fontWeight: 500 } }}
               />
             </ListItemButton>
           </ListItem>

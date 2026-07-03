@@ -4,7 +4,7 @@ import {
   Description,
   Google,
   GridOn,
-  HelpOutline,
+  HelpOutlined,
   Settings,
   ViewComfy,
 } from '@mui/icons-material'
@@ -20,7 +20,7 @@ export const DRAWER_SECTIONS: DrawerSection[] = [
   ],
   [
     { name: 'Settings', icon: <Settings /> },
-    { name: 'Help & Feedback', icon: <HelpOutline /> },
+    { name: 'Help & Feedback', icon: <HelpOutlined /> },
   ],
   [{ name: 'Drive', icon: <AddToDrive /> }],
 ]

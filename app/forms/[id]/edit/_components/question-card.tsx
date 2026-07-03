@@ -7,7 +7,7 @@ import {
   ArrowUpward,
   CheckBox,
   ContentCopy,
-  DeleteOutline,
+  DeleteOutlined,
   DragHandle,
   MoreVert,
   RadioButtonChecked,
@@ -175,7 +175,7 @@ export default function QuestionCard({
                     size="small"
                     onClick={() => onRemoveOption(question.id, i)}
                   >
-                    <DeleteOutline />
+                    <DeleteOutlined />
                   </IconButton>
                 </Box>
               ))}
@@ -204,9 +204,8 @@ export default function QuestionCard({
           <Divider sx={{ my: 2 }} />
           <Stack
             direction="row"
-            justifyContent="flex-end"
-            alignItems="center"
             spacing={1}
+            sx={{ justifyContent: 'flex-end', alignItems: 'center' }}
           >
             <IconButton
               onClick={() => onMove(index, 'up')}
@@ -225,7 +224,7 @@ export default function QuestionCard({
               <ContentCopy />
             </IconButton>
             <IconButton onClick={() => onDelete(question.id)}>
-              <DeleteOutline />
+              <DeleteOutlined />
             </IconButton>
             <Divider orientation="vertical" flexItem />
             <FormControlLabel
