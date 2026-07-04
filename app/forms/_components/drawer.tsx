@@ -34,6 +34,7 @@ export default function Drawer() {
       <MuiDrawer
         open={open}
         onClose={toggleDrawer(false)}
+        disableScrollLock
         sx={{ '& .MuiBackdrop-root': { opacity: '0 !important' } }}
       >
         <Box

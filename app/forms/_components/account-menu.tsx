@@ -69,6 +69,7 @@ export default function AccountMenu() {
         keepMounted
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
+        disableScrollLock
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
