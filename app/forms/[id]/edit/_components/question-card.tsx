@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import { QUESTION_TYPES } from "@/app/forms/constants/question-types";
 import type { Question, QuestionType } from "@/app/types";

@@ -49,10 +49,11 @@ export default function FormCard({
 
   useEffect(() => {
     if (renameOpen) {
-      setTimeout(() => {
+      const id = setTimeout(() => {
         renameInputRef.current?.focus();
         renameInputRef.current?.select();
       }, 100);
+      return () => clearTimeout(id);
     }
   }, [renameOpen]);
 
@@ -101,10 +102,7 @@ export default function FormCard({
       <MuiCard
         variant="outlined"
         elevation={0}
-        onClick={(e) => {
-          if (!e.currentTarget.contains(e.target as Node)) return;
-          router.push(`/forms/${form.id}/edit`);
-        }}
+        onClick={() => router.push(`/forms/${form.id}/edit`)}
         sx={{
           position: "relative",
           overflow: "visible",

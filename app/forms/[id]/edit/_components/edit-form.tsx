@@ -82,6 +82,8 @@ export default function EditForm({
     }
   }
 
+  const OTHER_LABEL = 'Other…'
+
   const handleOptionChange = (qId: string, optIndex: number, value: string) => {
     const question = form.questions.find((q) => q.id === qId)
     if (!question || !question.options) return
@@ -109,8 +111,6 @@ export default function EditForm({
     }
     updateQuestion(qId, { options: newOptions })
   }
-
-  const OTHER_LABEL = 'Other…'
   const addOtherOption = (qId: string) => {
     const question = form.questions.find((q) => q.id === qId)
     if (!question) return
