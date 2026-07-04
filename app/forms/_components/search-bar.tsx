@@ -17,21 +17,19 @@ export default function SearchBar() {
       <Stack
         direction="row"
         spacing={1}
-        sx={{
+        sx={(theme) => ({
           borderRadius: 7,
-          backgroundColor: '#F0F4F9',
           padding: 0.5,
           alignItems: 'center',
           width: '720px',
-          transition: (theme) =>
-            theme.transitions.create('all', {
-              duration: theme.transitions.duration.shortest,
-            }),
-          ...(focused && {
-            backgroundColor: 'common.white',
-            boxShadow: 2,
+          transition: theme.transitions.create('all', {
+            duration: theme.transitions.duration.shortest,
           }),
-        }}
+          bgcolor: focused ? 'background.paper' : 'grey.100',
+          ...(!focused
+            ? theme.applyStyles('dark', { bgcolor: 'grey.800' })
+            : {}),
+        })}
       >
         <Tooltip title="Search">
           <IconButton>

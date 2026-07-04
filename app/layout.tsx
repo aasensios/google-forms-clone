@@ -1,5 +1,7 @@
 import './globals.css'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter'
+import ThemeModeProvider from '@/app/theme-provider'
+import InitColorSchemeScript from '@mui/material/InitColorSchemeScript'
 
 export const metadata = {
   title: 'Google Forms clone',
@@ -12,10 +14,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
+        <InitColorSchemeScript />
         <AppRouterCacheProvider>
-          {children}
+          <ThemeModeProvider>{children}</ThemeModeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

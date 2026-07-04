@@ -55,7 +55,8 @@ export default function AccountMenu() {
           marginTop: 1.5,
           '& .MuiPaper-root': {
             position: 'relative',
-            backgroundColor: '#E9EEF6',
+            overflow: 'visible',
+            backgroundColor: 'background.paper',
             borderRadius: 7,
             width: theme.spacing(50),
           },
@@ -132,7 +133,7 @@ export default function AccountMenu() {
                 justifyContent: 'start',
                 backgroundColor: theme.palette.background.default,
                 '&:hover': {
-                  backgroundColor: theme.palette.grey[300],
+                  backgroundColor: theme.palette.action.hover,
                 },
               },
               [`& .MuiButton-root:first-of-type`]: {

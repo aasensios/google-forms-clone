@@ -33,9 +33,9 @@ export default async function PreviewPage({
   }
 
   return (
-    <Box sx={{ bgcolor: '#f0ebf8', minHeight: '100vh', py: 4 }}>
+    <Box sx={{ bgcolor: 'background.default', minHeight: '100vh', py: 4 }}>
       <Container maxWidth="md">
-        <Paper sx={{ p: 3, mb: 2, borderTop: '10px solid rgb(103, 58, 183)' }}>
+        <Paper sx={{ p: 3, mb: 2, borderTop: '10px solid', borderTopColor: 'primary.main' }}>
           <Typography variant="h4" gutterBottom>
             {form.title}
           </Typography>

@@ -11,7 +11,7 @@ export default function Forms() {
       component="main"
       sx={{
         backgroundColor: 'background.default',
-        color: 'grey.700',
+        color: 'text.primary',
         minHeight: '100dvh',
       }}
     >

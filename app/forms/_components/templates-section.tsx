@@ -12,7 +12,10 @@ import TemplateCard from './template-card'
 
 export default function TemplatesSection() {
   return (
-    <Box sx={{ backgroundColor: 'grey.200' }}>
+    <Box sx={(theme) => ({
+      backgroundColor: 'grey.200',
+      ...theme.applyStyles('dark', { backgroundColor: 'grey.900' }),
+    })}>
       <Container
         sx={{
           width: {
@@ -30,7 +33,7 @@ export default function TemplatesSection() {
           }}
         >
           <Typography component="h2">Start a new form</Typography>
-          <Box sx={{ display: 'flex' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Button
               color="inherit"
               endIcon={<UnfoldMore />}
@@ -39,7 +42,7 @@ export default function TemplatesSection() {
               Template gallery
             </Button>
             <Divider orientation="vertical" flexItem sx={{ marginInline: 1 }} />
-            <IconButton size="small">
+            <IconButton size="small" sx={{ borderRadius: '50%' }}>
               <MoreVert />
             </IconButton>
           </Box>

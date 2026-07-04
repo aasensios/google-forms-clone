@@ -26,7 +26,7 @@ export default function EditFormHeader({
   const formId = params.id as string
 
   return (
-    <AppBar position="sticky" color="default" sx={{ bgcolor: 'white' }}>
+    <AppBar position="sticky" color="default" sx={{ bgcolor: 'background.paper' }}>
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <IconButton onClick={() => router.push('/forms')}>

@@ -143,7 +143,7 @@ export default function EditForm({
   }
 
   return (
-    <Box sx={{ bgcolor: '#f0ebf8', minHeight: '100vh', pb: 4 }}>
+    <Box sx={{ bgcolor: 'background.default', minHeight: '100vh', pb: 4 }}>
       <EditFormHeader
         title={form.title}
         activeTab={activeTab}

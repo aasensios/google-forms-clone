@@ -250,7 +250,7 @@ export default function QuestionCard({
         <Box onClick={onClick} sx={{ cursor: 'pointer' }}>
           <Typography variant="subtitle1" sx={{ mb: 1 }}>
             {question.title || 'Question'}{' '}
-            {question.required && <span style={{ color: 'red' }}>*</span>}
+            {question.required && <Box component="span" sx={{ color: 'error.main' }}>*</Box>}
           </Typography>
 
           {question.type === 'text' && (

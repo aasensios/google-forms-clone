@@ -22,6 +22,7 @@ export default function FormCard({ form }: { form: Form }) {
         onClick={() => router.push(`/forms/${form.id}/edit`)}
         sx={{
           position: 'relative',
+          overflow: 'visible',
           '&:hover': {
             cursor: 'pointer',
             border: (theme) => `1px solid ${theme.palette.secondary.main}`,
