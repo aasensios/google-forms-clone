@@ -1,10 +1,10 @@
 import { Menu } from '@mui/icons-material'
-import { Box, IconButton, Drawer as MuiDrawer } from '@mui/material'
+import { Box, Divider, IconButton, Drawer as MuiDrawer, Typography } from '@mui/material'
 import { useState } from 'react'
 import { DRAWER_SECTIONS } from '../constants/drawer-sections'
 import DrawerSectionList from './drawer-section'
 
-export default function Drawer() {
+export default function Sidebar() {
   const [open, setOpen] = useState(false)
 
   const toggleDrawer =
@@ -43,6 +43,13 @@ export default function Drawer() {
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
         >
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: 600, paddingInline: 3, paddingBlockEnd: 1 }}
+          >
+            Google Forms Clone
+          </Typography>
+          <Divider sx={{ marginBlock: 1 }} />
           {DRAWER_SECTIONS.map((section) => (
             <DrawerSectionList key={JSON.stringify(section)} items={section} />
           ))}

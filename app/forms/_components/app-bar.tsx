@@ -5,7 +5,7 @@ import {
   Typography,
   IconButton,
 } from '@mui/material'
-import Drawer from './drawer'
+import Sidebar from './sidebar'
 import SearchBar from './search-bar'
 import AccountMenu from './account-menu'
 import { Apps, Description } from '@mui/icons-material'
@@ -16,7 +16,7 @@ export default function AppBar() {
       <MuiAppBar position="static" color="transparent" elevation={0}>
         <Toolbar sx={{ justifyContent: 'space-between', gap: 5 }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Drawer />
+            <Sidebar />
             <Description
               color="primary"
               fontSize="large"
@@ -28,7 +28,7 @@ export default function AppBar() {
               noWrap
               sx={{ display: { xs: 'none', sm: 'block' } }}
             >
-              Forms
+              Forms Clone
             </Typography>
           </Box>
           <SearchBar />

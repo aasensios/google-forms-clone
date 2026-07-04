@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from "react";
 import {
   Box,
   Button,
@@ -10,6 +10,7 @@ import {
   DialogTitle,
   IconButton,
   Card as MuiCard,
+  Link,
   ListItemIcon,
   ListItemText,
   Menu,
@@ -17,7 +18,7 @@ import {
   Stack,
   TextField,
   Typography,
-} from '@mui/material'
+} from "@mui/material";
 import {
   Delete,
   DriveFileRenameOutline,
@@ -25,75 +26,75 @@ import {
   OpenInNew,
   PeopleAltOutlined,
   ViewList,
-} from '@mui/icons-material'
-import type { Form } from '@/app/types'
-import { useRouter } from 'next/navigation'
+} from "@mui/icons-material";
+import type { Form } from "@/app/types";
+import { useRouter } from "next/navigation";
 
 export default function FormCard({
   form,
   onRename,
   onRemove,
 }: {
-  form: Form
-  onRename: (id: string, newName: string) => void
-  onRemove: (id: string) => void
+  form: Form;
+  onRename: (id: string, newName: string) => void;
+  onRemove: (id: string) => void;
 }) {
-  const router = useRouter()
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
-  const [renameOpen, setRenameOpen] = useState(false)
-  const [removeOpen, setRemoveOpen] = useState(false)
-  const [renameValue, setRenameValue] = useState(form.name)
-  const renameInputRef = useRef<HTMLInputElement>(null)
-  const menuOpen = Boolean(anchorEl)
+  const router = useRouter();
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [renameOpen, setRenameOpen] = useState(false);
+  const [removeOpen, setRemoveOpen] = useState(false);
+  const [renameValue, setRenameValue] = useState(form.name);
+  const renameInputRef = useRef<HTMLInputElement>(null);
+  const menuOpen = Boolean(anchorEl);
 
   useEffect(() => {
     if (renameOpen) {
       setTimeout(() => {
-        renameInputRef.current?.focus()
-        renameInputRef.current?.select()
-      }, 100)
+        renameInputRef.current?.focus();
+        renameInputRef.current?.select();
+      }, 100);
     }
-  }, [renameOpen])
+  }, [renameOpen]);
 
   const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    event.stopPropagation()
-    setAnchorEl(event.currentTarget)
-  }
+    event.stopPropagation();
+    setAnchorEl(event.currentTarget);
+  };
 
   const handleMenuClose = () => {
-    setAnchorEl(null)
-  }
+    setAnchorEl(null);
+  };
 
   const handleRenameOpen = (event: React.MouseEvent) => {
-    event.stopPropagation()
-    setRenameValue(form.name)
-    setRenameOpen(true)
-    handleMenuClose()
-  }
+    event.stopPropagation();
+    setRenameValue(form.name);
+    setRenameOpen(true);
+    handleMenuClose();
+  };
 
   const handleRenameConfirm = () => {
     if (renameValue.trim()) {
-      onRename(form.id, renameValue.trim())
+      onRename(form.id, renameValue.trim());
     }
-    setRenameOpen(false)
-  }
+    setRenameOpen(false);
+  };
 
   const handleRemoveOpen = (event: React.MouseEvent) => {
-    event.stopPropagation()
-    setRemoveOpen(true)
-    handleMenuClose()
-  }
+    event.stopPropagation();
+    setRemoveOpen(true);
+    handleMenuClose();
+  };
 
   const handleRemoveConfirm = () => {
-    onRemove(form.id)
-    setRemoveOpen(false)
-  }
+    onRemove(form.id);
+    setRemoveOpen(false);
+  };
 
   const handleOpenNewTab = (event: React.MouseEvent) => {
-    event.stopPropagation()
-    window.open(`/forms/${form.id}/edit`, '_blank')
-    handleMenuClose()
-  }
+    event.stopPropagation();
+    window.open(`/forms/${form.id}/edit`, "_blank");
+    handleMenuClose();
+  };
 
   return (
     <Stack spacing={1}>
@@ -101,14 +102,14 @@ export default function FormCard({
         variant="outlined"
         elevation={0}
         onClick={(e) => {
-          if (!e.currentTarget.contains(e.target as Node)) return
-          router.push(`/forms/${form.id}/edit`)
+          if (!e.currentTarget.contains(e.target as Node)) return;
+          router.push(`/forms/${form.id}/edit`);
         }}
         sx={{
-          position: 'relative',
-          overflow: 'visible',
-          '&:hover': {
-            cursor: 'pointer',
+          position: "relative",
+          overflow: "visible",
+          "&:hover": {
+            cursor: "pointer",
             border: (theme) => `1px solid ${theme.palette.primary.main}`,
           },
         }}
@@ -116,15 +117,15 @@ export default function FormCard({
         <CardMedia
           sx={{
             height: 170,
-            width: 'auto',
-            objectFit: 'cover',
+            width: "auto",
+            objectFit: "cover",
           }}
           image={form.thumbnailUrl}
           title={form.name}
         />
         <CardContent
           sx={{
-            ':last-child': {
+            ":last-child": {
               padding: 1.5,
             },
           }}
@@ -139,8 +140,8 @@ export default function FormCard({
           </Typography>
           <Box
             sx={{
-              display: 'flex',
-              alignItems: 'center',
+              display: "flex",
+              alignItems: "center",
               gap: 0.5,
               paddingInlineEnd: 2,
             }}
@@ -157,7 +158,7 @@ export default function FormCard({
               size="small"
               onClick={handleMenuOpen}
               sx={{
-                position: 'absolute',
+                position: "absolute",
                 right: 4,
                 bottom: 4,
               }}
@@ -170,8 +171,8 @@ export default function FormCard({
               onClose={handleMenuClose}
               disableScrollLock
               onClick={handleMenuClose}
-              transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-              anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+              transformOrigin={{ horizontal: "right", vertical: "top" }}
+              anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
               <MenuItem onClick={handleRenameOpen}>
                 <ListItemIcon>
@@ -204,17 +205,15 @@ export default function FormCard({
       >
         <DialogTitle>Rename</DialogTitle>
         <DialogContent>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-            Please enter a new name for the item
-          </Typography>
           <TextField
+            size="small"
             fullWidth
             label="Form name"
             value={renameValue}
             onChange={(e) => setRenameValue(e.target.value)}
             inputRef={renameInputRef}
             onKeyDown={(e) => {
-              if (e.key === 'Enter') handleRenameConfirm()
+              if (e.key === "Enter") handleRenameConfirm();
             }}
           />
         </DialogContent>
@@ -242,32 +241,26 @@ export default function FormCard({
           </Typography>
           <Typography variant="body2">
             If this file is shared, collaborators can still make a copy of it
-            until it&rsquo;s permanently deleted.{' '}
-            <Typography
-              component="a"
+            until it&rsquo;s permanently deleted.{" "}
+            <Link
               variant="body2"
-              color="primary"
+              underline="hover"
               href="https://support.google.com/drive/answer/2375102?visit_id=639187229443877119-640138785&p=restore_trash&rd=1#restore_trash"
               target="_blank"
-              sx={{ textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}
             >
               Learn more
-            </Typography>
+            </Link>
           </Typography>
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setRemoveOpen(false)} variant="outlined">
             Cancel
           </Button>
-          <Button
-            onClick={handleRemoveConfirm}
-            variant="contained"
-            color="error"
-          >
+          <Button onClick={handleRemoveConfirm} variant="contained">
             Move to trash
           </Button>
         </DialogActions>
       </Dialog>
     </Stack>
-  )
+  );
 }

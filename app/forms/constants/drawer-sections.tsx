@@ -2,7 +2,6 @@ import {
   AddToDrive,
   Article,
   Description,
-  Google,
   GridOn,
   HelpOutlined,
   Settings,
@@ -12,7 +11,6 @@ import {
 import type { DrawerSection } from '@/app/types'
 
 export const DRAWER_SECTIONS: DrawerSection[] = [
-  [{ name: 'Google Forms', icon: <Google color="info" /> }],
   [
     { name: 'Docs', icon: <Article color="info" /> },
     { name: 'Sheets', icon: <GridOn color="success" /> },

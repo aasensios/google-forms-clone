@@ -29,5 +29,37 @@ export const theme = createTheme({
     MuiTab: {
       styleOverrides: { root: { textTransform: 'none' } },
     },
+    MuiTextField: {
+      defaultProps: {
+        slotProps: {
+          inputLabel: { shrink: true },
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        outlined: {
+          '&.MuiInputLabel-shrink': {
+            position: 'relative',
+            transform: 'none',
+            fontSize: '0.875rem',
+            fontWeight: 500,
+            marginBottom: 4,
+          },
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          '& .MuiOutlinedInput-notchedOutline': {
+            top: 0,
+            '& > legend': {
+              display: 'none',
+            },
+          },
+        },
+      },
+    },
   },
 })
