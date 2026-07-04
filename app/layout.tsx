@@ -1,7 +1,10 @@
 import './globals.css'
+import { Inter } from 'next/font/google'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter'
 import ThemeModeProvider from '@/app/theme-provider'
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript'
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata = {
   title: 'Google Forms clone',
@@ -14,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body>
         <InitColorSchemeScript />
         <AppRouterCacheProvider>

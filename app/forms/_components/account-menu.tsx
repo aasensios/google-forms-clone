@@ -112,11 +112,19 @@ export default function AccountMenu() {
             <Typography variant="h6" sx={{ fontWeight: 400 }}>
               Hi, FirstName!
             </Typography>
-            <Button
+          <Button
               variant="outlined"
               color="primary"
               size="large"
-              sx={{ borderRadius: 7, fontSize: '14px', fontWeight: 500 }}
+              sx={{
+                borderRadius: 7,
+                fontSize: '14px',
+                fontWeight: 500,
+                ...theme.applyStyles('dark', {
+                  borderColor: 'primary.light',
+                  color: 'primary.light',
+                }),
+              }}
             >
               Manage your Google Account
             </Button>
@@ -135,7 +143,13 @@ export default function AccountMenu() {
                 backgroundColor: theme.palette.background.default,
                 '&:hover': {
                   backgroundColor: theme.palette.action.hover,
+                  ...theme.applyStyles('dark', {
+                    backgroundColor: theme.palette.grey[700],
+                  }),
                 },
+                ...theme.applyStyles('dark', {
+                  backgroundColor: theme.palette.grey[800],
+                }),
               },
               [`& .MuiButton-root:first-of-type`]: {
                 borderTopLeftRadius: theme.spacing(7),

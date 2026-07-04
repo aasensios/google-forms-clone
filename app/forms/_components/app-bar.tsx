@@ -18,7 +18,7 @@ export default function AppBar() {
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Drawer />
             <Description
-              color="secondary"
+              color="primary"
               fontSize="large"
               sx={{ marginInlineEnd: 1 }}
             />

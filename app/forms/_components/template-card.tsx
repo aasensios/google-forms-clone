@@ -13,7 +13,7 @@ export default function TemplateCard({ template }: { template: Template }) {
         sx={{
           '&:hover': {
             cursor: 'pointer',
-            border: (theme) => `1px solid ${theme.palette.secondary.main}`,
+            border: (theme) => `1px solid ${theme.palette.primary.main}`,
           },
         }}
       >

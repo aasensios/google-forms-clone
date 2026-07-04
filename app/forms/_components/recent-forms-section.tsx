@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import {
   Box,
   Button,
@@ -12,10 +15,23 @@ import {
   SortByAlpha,
   ViewListOutlined,
 } from '@mui/icons-material'
-import forms from '@/app/data/forms.json'
+import type { Form } from '@/app/types'
+import initialForms from '@/app/data/forms.json'
 import FormCard from './form-card'
 
 export default function RecentFormsSection() {
+  const [forms, setForms] = useState<Form[]>(initialForms)
+
+  const handleRename = (id: string, newName: string) => {
+    setForms((prev) =>
+      prev.map((f) => (f.id === id ? { ...f, name: newName } : f)),
+    )
+  }
+
+  const handleRemove = (id: string) => {
+    setForms((prev) => prev.filter((f) => f.id !== id))
+  }
+
   return (
     <Container
       sx={{
@@ -62,7 +78,11 @@ export default function RecentFormsSection() {
       >
         {forms.map((form, index) => (
           <Grid key={index}>
-            <FormCard form={form} />
+            <FormCard
+              form={form}
+              onRename={handleRename}
+              onRemove={handleRemove}
+            />
           </Grid>
         ))}
       </Box>
