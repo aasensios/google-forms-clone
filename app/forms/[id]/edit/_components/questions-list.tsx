@@ -24,9 +24,9 @@ export default function QuestionsList({
   updateQuestion,
   deleteQuestion,
   duplicateQuestion,
-  moveQuestion,
   handleOptionChange,
   addOption,
+  addOtherOption,
   removeOption,
   onDragEnd,
 }: {
@@ -36,9 +36,9 @@ export default function QuestionsList({
   updateQuestion: (id: string, updates: Partial<Question>) => void
   deleteQuestion: (id: string) => void
   duplicateQuestion: (id: string) => void
-  moveQuestion: (index: number, direction: 'up' | 'down') => void
   handleOptionChange: (qId: string, optIndex: number, value: string) => void
   addOption: (qId: string) => void
+  addOtherOption: (qId: string) => void
   removeOption: (qId: string, optIndex: number) => void
   onDragEnd: (event: DragEndEvent) => void
 }) {
@@ -63,14 +63,13 @@ export default function QuestionsList({
             question={question}
             index={index}
             isActive={activeQuestionId === question.id}
-            questionsLength={questions.length}
             setActiveQuestionId={setActiveQuestionId}
             updateQuestion={updateQuestion}
             deleteQuestion={deleteQuestion}
             duplicateQuestion={duplicateQuestion}
-            moveQuestion={moveQuestion}
             handleOptionChange={handleOptionChange}
             addOption={addOption}
+            addOtherOption={addOtherOption}
             removeOption={removeOption}
           />
         ))}

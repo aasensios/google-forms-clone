@@ -82,24 +82,6 @@ export default function EditForm({
     }
   }
 
-  const moveQuestion = (index: number, direction: 'up' | 'down') => {
-    if (
-      (direction === 'up' && index === 0) ||
-      (direction === 'down' && index === form.questions.length - 1)
-    ) {
-      return
-    }
-
-    const newQuestions = [...form.questions]
-    const targetIndex = direction === 'up' ? index - 1 : index + 1
-    ;[newQuestions[index], newQuestions[targetIndex]] = [
-      newQuestions[targetIndex],
-      newQuestions[index],
-    ]
-
-    setForm((prev) => ({ ...prev, questions: newQuestions }))
-  }
-
   const handleOptionChange = (qId: string, optIndex: number, value: string) => {
     const question = form.questions.find((q) => q.id === qId)
     if (!question || !question.options) return
@@ -112,11 +94,28 @@ export default function EditForm({
   const addOption = (qId: string) => {
     const question = form.questions.find((q) => q.id === qId)
     if (!question) return
-    const newOptions = [
-      ...(question.options || []),
-      `Option ${(question.options?.length || 0) + 1}`,
-    ]
+    const options = question.options || []
+    const otherIndex = options.findIndex((opt) => opt === OTHER_LABEL)
+    const newOptions = [...options]
+    const maxNum = options.reduce((max, opt) => {
+      const match = opt.match(/^Option (\d+)$/)
+      return match ? Math.max(max, parseInt(match[1])) : max
+    }, 0)
+    const newOption = `Option ${maxNum + 1}`
+    if (otherIndex !== -1) {
+      newOptions.splice(otherIndex, 0, newOption)
+    } else {
+      newOptions.push(newOption)
+    }
     updateQuestion(qId, { options: newOptions })
+  }
+
+  const OTHER_LABEL = 'Other…'
+  const addOtherOption = (qId: string) => {
+    const question = form.questions.find((q) => q.id === qId)
+    if (!question) return
+    if (question.options?.some((opt) => opt === OTHER_LABEL)) return
+    updateQuestion(qId, { options: [...(question.options || []), OTHER_LABEL] })
   }
 
   const removeOption = (qId: string, optIndex: number) => {
@@ -165,9 +164,9 @@ export default function EditForm({
               updateQuestion={updateQuestion}
               deleteQuestion={deleteQuestion}
               duplicateQuestion={duplicateQuestion}
-              moveQuestion={moveQuestion}
               handleOptionChange={handleOptionChange}
               addOption={addOption}
+              addOtherOption={addOtherOption}
               removeOption={removeOption}
               onDragEnd={handleDragEnd}
             />

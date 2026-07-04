@@ -61,5 +61,15 @@ export const theme = createTheme({
         },
       },
     },
+    MuiFilledInput: {
+      styleOverrides: {
+        root: {
+          paddingTop: 0,
+        },
+        input: {
+          padding: '16px 12px',
+        },
+      },
+    },
   },
 })

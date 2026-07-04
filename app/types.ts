@@ -34,9 +34,11 @@ export type QuestionTypeOption = {
 export interface Question {
   id: string
   title: string
+  description?: string
   type: QuestionType
   options?: string[]
   required: boolean
+  shuffle?: boolean
 }
 
 export interface FormTemplate {

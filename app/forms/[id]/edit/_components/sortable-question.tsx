@@ -9,27 +9,25 @@ export default function SortableQuestion({
   question,
   index,
   isActive,
-  questionsLength,
   setActiveQuestionId,
   updateQuestion,
   deleteQuestion,
   duplicateQuestion,
-  moveQuestion,
   handleOptionChange,
   addOption,
+  addOtherOption,
   removeOption,
 }: {
   question: Question
   index: number
   isActive: boolean
-  questionsLength: number
   setActiveQuestionId: (id: string) => void
   updateQuestion: (id: string, updates: Partial<Question>) => void
   deleteQuestion: (id: string) => void
   duplicateQuestion: (id: string) => void
-  moveQuestion: (index: number, direction: 'up' | 'down') => void
   handleOptionChange: (qId: string, optIndex: number, value: string) => void
   addOption: (qId: string) => void
+  addOtherOption: (qId: string) => void
   removeOption: (qId: string, optIndex: number) => void
 }) {
   const {
@@ -55,15 +53,14 @@ export default function SortableQuestion({
         question={question}
         index={index}
         isActive={isActive}
-        questionsLength={questionsLength}
         dragHandleProps={{ ...attributes, ...listeners }}
         onClick={() => setActiveQuestionId(question.id)}
         onUpdate={updateQuestion}
         onDelete={deleteQuestion}
         onDuplicate={duplicateQuestion}
-        onMove={moveQuestion}
         onOptionChange={handleOptionChange}
         onAddOption={addOption}
+        onAddOtherOption={addOtherOption}
         onRemoveOption={removeOption}
       />
     </div>
