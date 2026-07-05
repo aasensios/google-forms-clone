@@ -76,8 +76,8 @@ export default function RecentFormsSection() {
           gap: 2.5,
         }}
       >
-        {forms.map((form, index) => (
-          <Grid key={index}>
+        {forms.map((form) => (
+          <Grid key={form.id}>
             <FormCard
               form={form}
               onRename={handleRename}
