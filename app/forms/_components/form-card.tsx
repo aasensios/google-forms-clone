@@ -97,18 +97,37 @@ export default function FormCard({
     handleMenuClose();
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+    if (
+      event.target === event.currentTarget &&
+      (event.key === "Enter" || event.key === " ")
+    ) {
+      event.preventDefault();
+      router.push(`/forms/${form.id}/edit`);
+    }
+  };
+
   return (
     <Stack spacing={1}>
       <MuiCard
         variant="outlined"
         elevation={0}
+        role="button"
+        tabIndex={0}
+        aria-label={`Open form ${form.name}`}
         onClick={() => router.push(`/forms/${form.id}/edit`)}
+        onKeyDown={handleKeyDown}
         sx={{
           position: "relative",
           overflow: "visible",
           "&:hover": {
             cursor: "pointer",
             border: (theme) => `1px solid ${theme.palette.primary.main}`,
+          },
+          "&:focus-visible": {
+            outline: "2px solid",
+            outlineColor: "primary.main",
+            outlineOffset: "-2px",
           },
         }}
       >

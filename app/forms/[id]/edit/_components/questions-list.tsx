@@ -56,7 +56,10 @@ export default function QuestionsList({
       collisionDetection={closestCenter}
       onDragEnd={onDragEnd}
     >
-      <SortableContext items={questions} strategy={verticalListSortingStrategy}>
+      <SortableContext
+        items={questions.map((question) => question.id)}
+        strategy={verticalListSortingStrategy}
+      >
         {questions.map((question, index) => (
           <SortableQuestion
             key={question.id}

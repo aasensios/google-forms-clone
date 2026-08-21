@@ -27,7 +27,17 @@ export const theme = createTheme({
       styleOverrides: { root: { textTransform: 'none' } },
     },
     MuiTab: {
-      styleOverrides: { root: { textTransform: 'none' } },
+      styleOverrides: {
+        root: ({ theme }) => ({
+          textTransform: 'none',
+          '&.Mui-selected': {
+            color: theme.palette.primary.main,
+            ...theme.applyStyles('dark', {
+              color: theme.palette.primary.light,
+            }),
+          },
+        }),
+      },
     },
     MuiTextField: {
       defaultProps: {

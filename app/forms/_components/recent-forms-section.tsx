@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useSyncExternalStore } from 'react'
 import {
   Box,
   Button,
@@ -15,22 +15,34 @@ import {
   SortByAlpha,
   ViewListOutlined,
 } from '@mui/icons-material'
+import {
+  deleteForm,
+  getFormsSnapshot,
+  getServerFormsSnapshot,
+  renameForm,
+  subscribeForms,
+} from '@/app/lib/forms-store'
 import type { Form } from '@/app/types'
-import initialForms from '@/app/data/forms.json'
+import { TEMPLATES } from '../constants/templates'
 import FormCard from './form-card'
 
 export default function RecentFormsSection() {
-  const [forms, setForms] = useState<Form[]>(initialForms)
+  const templates = useSyncExternalStore(
+    subscribeForms,
+    getFormsSnapshot,
+    getServerFormsSnapshot,
+  )
 
-  const handleRename = (id: string, newName: string) => {
-    setForms((prev) =>
-      prev.map((f) => (f.id === id ? { ...f, name: newName } : f)),
-    )
-  }
+  const cards: Form[] = templates.map((t, i) => ({
+    id: t.id,
+    name: t.title || 'Untitled Form',
+    thumbnailUrl: t.thumbnailUrl || TEMPLATES[i % TEMPLATES.length].thumbnailUrl,
+    shared: false,
+    lastOpen: '',
+  }))
 
-  const handleRemove = (id: string) => {
-    setForms((prev) => prev.filter((f) => f.id !== id))
-  }
+  const handleRename = (id: string, newName: string) => renameForm(id, newName)
+  const handleRemove = (id: string) => deleteForm(id)
 
   return (
     <Container
@@ -76,7 +88,7 @@ export default function RecentFormsSection() {
           gap: 2.5,
         }}
       >
-        {forms.map((form) => (
+        {cards.map((form) => (
           <Grid key={form.id}>
             <FormCard
               form={form}

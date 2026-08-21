@@ -1,35 +1,34 @@
+'use client'
+
 import type { FormTemplate } from '@/app/types'
 import { notFound } from 'next/navigation'
-import { Box, Container, Paper, Typography } from '@mui/material'
+import { useParams } from 'next/navigation'
+import { Box, CircularProgress, Container, Paper, Typography } from '@mui/material'
+import { useSyncExternalStore } from 'react'
+import {
+  getFormsSnapshot,
+  subscribeForms,
+} from '@/app/lib/forms-store'
 
-// Mock initial data - in a real app this would come from an API/DB
-const INITIAL_FORM: FormTemplate = {
-  id: '1',
-  title: 'Untitled Form',
-  description: 'Form description',
-  questions: [
-    {
-      id: 'q1',
-      title: 'Untitled Question',
-      type: 'radio',
-      options: ['Option 1'],
-      required: false,
-    },
-  ],
-}
+export default function PreviewPage() {
+  const params = useParams<{ id: string }>()
+  const formId = params.id
+  const forms = useSyncExternalStore(
+    subscribeForms,
+    getFormsSnapshot,
+    () => null as FormTemplate[] | null,
+  )
+  const form =
+    forms === null ? null : (forms.find((f) => f.id === formId) ?? null)
 
-export default async function PreviewPage({
-  params,
-}: {
-  params: Promise<{ id: string }>
-}) {
-  const { id } = await params
-
-  // In a real app we'd fetch the data
-  const form = { ...INITIAL_FORM, id }
+  if (forms !== null && !form) notFound()
 
   if (!form) {
-    notFound()
+    return (
+      <Box sx={{ bgcolor: 'background.default', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <CircularProgress />
+      </Box>
+    )
   }
 
   return (

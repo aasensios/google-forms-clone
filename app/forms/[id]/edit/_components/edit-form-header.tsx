@@ -29,7 +29,7 @@ export default function EditFormHeader({
     <AppBar position="sticky" color="default" sx={{ bgcolor: 'background.paper' }}>
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <IconButton onClick={() => router.push('/forms')}>
+          <IconButton aria-label="Back to forms" onClick={() => router.push('/forms')}>
             <ArrowBack />
           </IconButton>
           <Typography variant="h6" color="inherit" noWrap>

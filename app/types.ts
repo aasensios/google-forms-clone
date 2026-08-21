@@ -46,4 +46,5 @@ export interface FormTemplate {
   title: string
   description: string
   questions: Question[]
+  thumbnailUrl?: string
 }

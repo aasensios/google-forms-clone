@@ -33,18 +33,37 @@ export default function QuestionCard({
   onAddOtherOption: (qId: string) => void;
   onRemoveOption: (qId: string, optIndex: number) => void;
 }) {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+    if (
+      event.target === event.currentTarget &&
+      (event.key === "Enter" || event.key === " ")
+    ) {
+      event.preventDefault();
+      onClick();
+    }
+  };
+
   return (
     <Paper
       onClick={onClick}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
       data-active={isActive || undefined}
       sx={{
         p: 3,
         borderLeft: "1px solid",
         borderLeftColor: "transparent",
         position: "relative",
+        cursor: "pointer",
         "&[data-active]": {
           borderLeftWidth: 6,
           borderLeftColor: "primary.main",
+        },
+        "&:focus-visible": {
+          outline: "2px solid",
+          outlineColor: "primary.main",
+          outlineOffset: "-2px",
         },
       }}
     >
@@ -88,10 +107,7 @@ export default function QuestionCard({
           onDuplicate={onDuplicate}
         />
       ) : (
-        <QuestionViewContent
-          question={question}
-          onClick={onClick}
-        />
+        <QuestionViewContent question={question} />
       )}
     </Paper>
   );

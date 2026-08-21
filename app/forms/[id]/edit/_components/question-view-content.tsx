@@ -14,13 +14,11 @@ import {
 
 export default function QuestionViewContent({
   question,
-  onClick,
 }: {
   question: Question;
-  onClick: () => void;
 }) {
   return (
-    <Box onClick={onClick} sx={{ cursor: "pointer" }}>
+    <Box sx={{ cursor: "pointer" }}>
       <Typography variant="subtitle1" sx={{ mb: 1 }}>
         {question.title || "Question"}{" "}
         {question.required && (

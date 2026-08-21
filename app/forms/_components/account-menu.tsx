@@ -88,13 +88,15 @@ export default function AccountMenu() {
               myemail@company.com
             </Typography>
             <IconButton
+              aria-label="Close"
+              onClick={handleCloseUserMenu}
               sx={(theme) => ({
                 position: 'absolute',
                 right: theme.spacing(1),
                 top: theme.spacing(1),
               })}
             >
-              <Close onClick={handleCloseUserMenu} />
+              <Close />
             </IconButton>
           </Stack>
           <Stack spacing={1} sx={{ alignItems: 'center' }}>
