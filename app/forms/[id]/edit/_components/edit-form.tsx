@@ -6,7 +6,7 @@ import QuestionsList from './questions-list'
 import type { FormTemplate, Question, QuestionType } from '@/app/types'
 import { arrayMove } from '@dnd-kit/sortable'
 import { Add } from '@mui/icons-material'
-import { Box, Container, Fab, Stack, useTheme } from '@mui/material'
+import { Box, Container, Fab, Stack } from '@mui/material'
 import { useState } from 'react'
 import type { DragEndEvent } from '@dnd-kit/core'
 
@@ -15,8 +15,6 @@ export default function EditForm({
 }: {
   initialForm: FormTemplate
 }) {
-  const theme = useTheme()
-
   const [form, setForm] = useState<FormTemplate>(initialForm)
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(
     initialForm.questions[0]?.id || null,
@@ -176,11 +174,11 @@ export default function EditForm({
       <Fab
         color="primary"
         aria-label="add question"
-        sx={{
+        sx={(theme) => ({
           position: 'fixed',
           bottom: theme.spacing(3),
           right: theme.spacing(3),
-        }}
+        })}
         onClick={addQuestion}
       >
         <Add />

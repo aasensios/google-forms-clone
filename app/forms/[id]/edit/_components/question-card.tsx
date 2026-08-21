@@ -36,11 +36,16 @@ export default function QuestionCard({
   return (
     <Paper
       onClick={onClick}
+      data-active={isActive || undefined}
       sx={{
         p: 3,
-        borderLeft: isActive ? "6px solid" : "1px solid",
-        borderLeftColor: isActive ? "primary.main" : "transparent",
+        borderLeft: "1px solid",
+        borderLeftColor: "transparent",
         position: "relative",
+        "&[data-active]": {
+          borderLeftWidth: 6,
+          borderLeftColor: "primary.main",
+        },
       }}
     >
       <Box
@@ -50,9 +55,12 @@ export default function QuestionCard({
           top: 0,
           left: "50%",
           transform: "translateX(-50%)",
-          opacity: isActive ? 1 : 0,
+          opacity: 0,
           cursor: "grab",
           "&:hover": {
+            opacity: 1,
+          },
+          "[data-active] &": {
             opacity: 1,
           },
           zIndex: 1,

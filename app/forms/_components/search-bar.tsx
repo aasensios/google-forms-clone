@@ -17,18 +17,18 @@ export default function SearchBar() {
       <Stack
         direction="row"
         spacing={1}
+        data-focused={focused || undefined}
         sx={(theme) => ({
           borderRadius: 7,
           padding: 0.5,
           alignItems: 'center',
           width: '720px',
-          transition: theme.transitions.create('all', {
-            duration: theme.transitions.duration.shortest,
-          }),
-          bgcolor: focused ? 'background.paper' : 'grey.100',
-          ...(!focused
-            ? theme.applyStyles('dark', { bgcolor: 'grey.800' })
-            : {}),
+          transition: 'background-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+          bgcolor: 'grey.100',
+          ...theme.applyStyles('dark', { bgcolor: 'grey.800' }),
+          '&[data-focused]': {
+            bgcolor: 'background.paper',
+          },
         })}
       >
         <Tooltip title="Search">
@@ -46,7 +46,13 @@ export default function SearchBar() {
         />
         <Tooltip title="Clear search">
           <IconButton
-            sx={{ visibility: value.length === 0 ? 'hidden' : 'visible' }}
+            data-empty={value.length === 0 || undefined}
+            sx={{
+              visibility: 'visible',
+              '&[data-empty]': {
+                visibility: 'hidden',
+              },
+            }}
             onClick={() => setValue('')}
           >
             <Close />

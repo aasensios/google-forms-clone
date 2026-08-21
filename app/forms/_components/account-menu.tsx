@@ -9,14 +9,11 @@ import {
   Stack,
   Tooltip,
   Typography,
-  useTheme,
 } from '@mui/material'
 import React, { useState } from 'react'
 import { ABSTRACT_AVATAR } from '../constants/avatars'
 
 export default function AccountMenu() {
-  const theme = useTheme()
-
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null)
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -32,26 +29,26 @@ export default function AccountMenu() {
       <Tooltip title="Account">
         <IconButton
           onClick={handleOpenUserMenu}
-          sx={{
+          sx={(theme) => ({
             padding: 0.5,
             [`&:focus`]: {
               outline: `1px solid ${theme.palette.primary.main}`,
               outlineOffset: 1,
             },
-          }}
+          })}
         >
           <Avatar
             alt="User avatar"
             src={ABSTRACT_AVATAR}
-            sx={{
+            sx={(theme) => ({
               width: theme.spacing(4),
               height: theme.spacing(4),
-            }}
+            })}
           />
         </IconButton>
       </Tooltip>
       <Menu
-        sx={{
+        sx={(theme) => ({
           marginTop: 1.5,
           '& .MuiPaper-root': {
             position: 'relative',
@@ -63,7 +60,7 @@ export default function AccountMenu() {
           '& .MuiList-root': {
             padding: 0,
           },
-        }}
+        })}
         id="account-menu"
         anchorEl={anchorElUser}
         keepMounted
@@ -91,11 +88,11 @@ export default function AccountMenu() {
               myemail@company.com
             </Typography>
             <IconButton
-              sx={{
+              sx={(theme) => ({
                 position: 'absolute',
                 right: theme.spacing(1),
                 top: theme.spacing(1),
-              }}
+              })}
             >
               <Close onClick={handleCloseUserMenu} />
             </IconButton>
@@ -104,10 +101,10 @@ export default function AccountMenu() {
             <Avatar
               alt="User avatar"
               src={ABSTRACT_AVATAR}
-              sx={{
+              sx={(theme) => ({
                 height: theme.spacing(9),
                 width: theme.spacing(9),
-              }}
+              })}
             />
             <Typography variant="h6" sx={{ fontWeight: 400 }}>
               Hi, FirstName!
@@ -116,7 +113,7 @@ export default function AccountMenu() {
               variant="outlined"
               color="primary"
               size="large"
-              sx={{
+              sx={(theme) => ({
                 borderRadius: 7,
                 fontSize: '14px',
                 fontWeight: 500,
@@ -124,7 +121,7 @@ export default function AccountMenu() {
                   borderColor: 'primary.light',
                   color: 'primary.light',
                 }),
-              }}
+              })}
             >
               Manage your Google Account
             </Button>
@@ -134,7 +131,7 @@ export default function AccountMenu() {
             color="inherit"
             disableElevation
             fullWidth
-            sx={{
+            sx={(theme) => ({
               gap: 0.5,
               [`& .MuiButton-root`]: {
                 borderRight: 'none',
@@ -170,7 +167,7 @@ export default function AccountMenu() {
                 height: '1.5rem',
                 width: '1.5rem',
               },
-            }}
+            })}
           >
             <Button startIcon={<AddCircleTwoTone color="primary" />}>
               Add account
